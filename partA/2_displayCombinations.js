@@ -8,7 +8,7 @@ example: sum of 7 can be obtained in multiple ways (1+6, 2+5, 3+4, 4+3, 5+2, 6+1
 const dieA = [1, 2, 3, 4, 5, 6];
 const dieB = [1, 2, 3, 4, 5, 6];
 
-function calculateDistribution(dieA, dieB) {
+function displayCombinations(dieA, dieB) {
   let distribution = {};
 
   for (let valueA of dieA) {
@@ -22,7 +22,7 @@ function calculateDistribution(dieA, dieB) {
   return distribution;
 }
 
-const distribution = calculateDistribution(dieA, dieB);
+const distribution = displayCombinations(dieA, dieB);
 
 console.log("Distribution of Combinations:");
 for (let sum in distribution) {
