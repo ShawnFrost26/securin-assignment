@@ -72,4 +72,22 @@ function adjust_Die_B(originalProbabilities, adjusted_Die_A) {
 }
 
 const adjusted_Die_B = adjust_Die_B(originalProbabilities, adjusted_Die_A);
-console.log("Adjusted Die B:", adjusted_Die_B);
+// console.log("Adjusted Die B:", adjusted_Die_B);
+
+// step 3
+
+function undoom_dice() {
+  const originalProbabilities = calculateOriginalProbabilities();
+
+  const adjusted_Die_A = adjust_Die_A(originalProbabilities);
+
+  const adjusted_Die_B = adjust_Die_B(originalProbabilities, adjusted_Die_A);
+
+  return {
+    New_Die_A: adjusted_Die_A,
+    New_Die_B: adjusted_Die_B,
+  };
+}
+
+const finalAdjustedDice = undoom_dice();
+console.log("Final Adjusted Dice:", finalAdjustedDice);
