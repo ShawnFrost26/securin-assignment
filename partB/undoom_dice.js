@@ -49,4 +49,27 @@ function adjust_Die_A(originalProbabilities) {
 }
 
 const adjusted_Die_A = adjust_Die_A(originalProbabilities);
-console.log("Adjusted Die A:", adjusted_Die_A);
+// console.log("Adjusted Die A:", adjusted_Die_A);
+
+//step 3 : now we nwwd to calculate the original probability for each face of Die B based on the adjusted faces of Die A.
+// then we need to adjust the faces of Die B to complement the changes made to Die A while maintaining the original probability distribution for the sums.
+
+function adjust_Die_B(originalProbabilities, adjusted_Die_A) {
+  const Die_B = [1, 2, 3, 4, 5, 6];
+  const New_Die_B = [];
+
+  for (let i = 0; i < Die_B.length; i++) {
+    const originalProbability = Die_B.reduce((sum, face) => {
+      return sum + originalProbabilities[adjusted_Die_A[0] + face];
+    }, 0);
+
+    const newSpots = Math.ceil(originalProbability * 6);
+
+    New_Die_B.push(newSpots);
+  }
+
+  return New_Die_B;
+}
+
+const adjusted_Die_B = adjust_Die_B(originalProbabilities, adjusted_Die_A);
+console.log("Adjusted Die B:", adjusted_Die_B);
